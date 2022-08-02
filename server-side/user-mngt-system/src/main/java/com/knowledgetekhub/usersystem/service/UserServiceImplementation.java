@@ -59,5 +59,20 @@ public class UserServiceImplementation implements UserService{
         return true;
     }
 
+    @Override
+    public User updateUser(long id, User user) {
+
+        UserEntity userEntity = userRepository.findById(id).get();
+
+        userEntity.setEmailId(userEntity.getEmailId());
+        userEntity.setFirstName(userEntity.getFirstName());
+        userEntity.setLastName(userEntity.getLastName());
+
+        userRepository.save(userEntity);
+
+
+        return user;
+    }
+
 
 }
